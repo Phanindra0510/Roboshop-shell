@@ -18,7 +18,7 @@ Print_head "Extracting file nginx"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>${log_file}
 
-Print_head"Copying configs of nginx for roboshop"
+Print_head "Copying configs of nginx for roboshop"
 cp ${code_dir}/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${log_file}
 
 Print_head "Enabling nginx"

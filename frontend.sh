@@ -3,7 +3,7 @@ log_file=/tmp/roboshop.log
 rm -f ${log_file}
 
 Print_head(){
-  ech0 -e "\e[36$1\e[om"
+  ech0 -e "\e[36m$1\e[om"
 }
 Print_head "Installing nginx"
 yum install nginx -y &>>${log_file}

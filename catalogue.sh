@@ -39,7 +39,7 @@ systemctl restart catalogue &>>${log_file}
 
 # To load schema
 Print_head "Copy MongoDB repo"
-cp configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
+cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
 
 Print_head "Install MongoDB"
 yum install mongodb-org-shell -y &>>${log_file}

@@ -7,7 +7,7 @@ Print_head "Install MongoDB"
 yum install mongodb-org -y &>>${log_file}
 
 Print_head "Update MongoDB Listen address"
-sed -i -e 's/127.0.0.1/0.0.0.0' /etc/mongodb.conf &>>${log_file}
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongodb.conf &>>${log_file}
 
 Print_head "Enable MongoDB"
 systemctl enable mongod &>>${log_file}

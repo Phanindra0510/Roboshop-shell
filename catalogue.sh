@@ -26,7 +26,7 @@ Print_head "NodeJS Dependencies"
 npm install &>>${log_file}
 
 Print_head "Copy system.d files"
-cp configs/catalogue.service /etc/systemd/system/catalogue.service &>>${log_file}
+cp ${code_dir}/configs/catalogue.service /etc/systemd/system/catalogue.service &>>${log_file}
 
 Print_head "Reload system.d"
 systemctl daemon-reload &>>${log_file}

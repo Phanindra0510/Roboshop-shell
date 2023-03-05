@@ -7,7 +7,7 @@ Print_head(){
 }
 
 status_check (){
-  if [ $? == 0 ];
+  if [ $? == 0 ]
   then
     echo SUCCESS
   else

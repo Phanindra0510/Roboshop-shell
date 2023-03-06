@@ -9,7 +9,7 @@ yum install nodejs -y &>>${log_file}
 status_check $?
 
 Print_head "Adding user"
-if [$? -ne 0 ]; then
+if [$? != 0 ]; then
  useradd roboshop &>>${log_file}
 fi
 status_check $?

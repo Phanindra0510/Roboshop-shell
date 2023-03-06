@@ -18,8 +18,8 @@ status_check $?
 
 Print_head "Enable Redis"
 systemctl enable redis &>>${log_file}
-status_check &?
+status_check $?
 
 Print_head "start Redis"
-systemctl start redis &>>${log_file}
-status_check &?
+systemctl restart redis &>>${log_file}
+status_check $?

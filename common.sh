@@ -3,7 +3,7 @@ log_file=/tmp/roboshop.log
 rm -f ${log_file}
 
 Print_head(){
-  echo -e "\e[34m$1\e[om"
+  echo -e "\e[35m$1\e[om"
 }
 
 status_check (){

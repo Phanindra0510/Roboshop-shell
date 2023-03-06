@@ -15,7 +15,9 @@ fi
 status_check $?
 
 Print_head "Creating Directory"
-mkdir /app &>>${log_file}
+if [ !-d /app ]; then
+ mkdir /app &>>${log_file}
+fi
 status_check $?
 
 Print_head "Remove old content"

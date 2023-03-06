@@ -4,22 +4,22 @@ Print_head "Install Redis repo"
 yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>${log_file}
 status_check $?
 
-Print_head "Enable Redis 6.2 repo"
+Print_head "Enable 6.2 Redis"
 dnf module enable redis:remi-6.2 -y &>>${log_file}
 status_check $?
 
-Print_head "Install Redis"
+Print_head "Install Redis File"
 yum install redis -y &>>${log_file}
 status_check $?
 
-Print_head "Update Redis Listen Address"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf&>>${log_file}
+Print_head "Changing Listen Address"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>${log_file}
 status_check $?
 
 Print_head "Enable Redis"
 systemctl enable redis &>>${log_file}
-status_check $?
+status_check &?
 
-Print_head "Start Redis"
-systemctl restart redis &>>${log_file}
-status_check $?
+Print_head "start Redis"
+systemctl start redis &>>${log_file}
+status_check &?

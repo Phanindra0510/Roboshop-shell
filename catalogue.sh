@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
 fi
 status_check $?
 
-Print_head "Creating Directory"
+Print_head "Creating Application Directory"
 if [ ! -d /app ]; then
  mkdir /app &>>${log_file}
 fi

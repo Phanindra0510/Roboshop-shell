@@ -6,7 +6,7 @@ Print_head() {
   echo -e "\e[36m$1\e[om"
 }
 
-status_check (){
+status_check () {
   if [ $1 -eq 0 ]
   then
     echo SUCCESS

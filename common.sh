@@ -17,6 +17,23 @@ status_check () {
   fi
 }
 
+schema_steup() {
+  if [ "${schema_type}" == "mongo"]; then
+    Print_head "Copy MongoDB repo"
+    cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
+    status_check $?
+
+    Print_head "Install MongoDB"
+    yum install mongodb-org-shell -y &>>${log_file}
+    status_check $?
+
+    Print_head "load schema"
+    mongo --host mongodb.ravidevops.online </app/schema/${component}.js &>>${log_file}
+    status_check $?
+  fi
+
+}
+
 nodejs (){
   Print_head "Setup NodeJS repo"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${log_file}
@@ -72,16 +89,6 @@ nodejs (){
   systemctl restart ${component} &>>${log_file}
   status_check $?
 
-  Print_head "Copy MongoDB repo"
-  cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
-  status_check $?
-
-  Print_head "Install MongoDB"
-  yum install mongodb-org-shell -y &>>${log_file}
-  status_check $?
-
-  Print_head "load schema"
-  mongo --host mongodb.ravidevops.online </app/schema/${component}.js &>>${log_file}
-  status_check $?
+  schema_setup
 
 }

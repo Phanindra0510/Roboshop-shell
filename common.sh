@@ -17,8 +17,9 @@ status_check () {
   fi
 }
 
-schema_steup() {
-  if [ "${schema_type}" == "mongo"]; then
+schema_setup () {
+  if [ "${schema_type}" == "mongo" ];
+  then
     Print_head "Copy MongoDB repo"
     cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
     status_check $?
@@ -34,7 +35,7 @@ schema_steup() {
 
 }
 
-nodejs (){
+nodejs () {
   Print_head "Setup NodeJS repo"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${log_file}
   status_check $?

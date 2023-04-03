@@ -133,6 +133,4 @@ java(){
 
   systemd_setup
 
-
-
 }

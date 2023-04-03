@@ -50,9 +50,7 @@ schema_setup () {
     Print_head "load schema"
     mongo --host mongodb.ravidevops.online </app/schema/${component}.js &>>${log_file}
     status_check $?
-
-  elif [ "${schema_type]" == "mysql" ];
-  then
+  elif [ "${schema_type]" == "mysql" ];  then
     Print_head "Install MySQL Client"
     yum install mysql -y &>>${log_file}
     status_check $?
@@ -116,7 +114,7 @@ nodejs () {
 
 }
 
-java(){
+java () {
 
   Print_head "Install Maven"
   yum install maven -y &>>${log_file}

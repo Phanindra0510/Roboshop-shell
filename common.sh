@@ -50,7 +50,7 @@ schema_setup () {
     Print_head "load schema"
     mongo --host mongodb.ravidevops.online </app/schema/${component}.js &>>${log_file}
     status_check $?
-  elif [ "${schema_type]" == "mysql" ];  then
+  elif [ "${schema_type}" == "mysql" ]; then
     Print_head "Install MySQL Client"
     yum install mysql -y &>>${log_file}
     status_check $?
@@ -63,7 +63,7 @@ schema_setup () {
 
 }
 
-app_prereq_setup () {
+app_prereq_setup() {
 
    Print_head "Creating Roboshop user"
    id roboshop &>>${log_file}
@@ -93,7 +93,7 @@ app_prereq_setup () {
 
 }
 
-nodejs () {
+nodejs() {
   Print_head "Setup NodeJS repo"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${log_file}
   status_check $?
@@ -114,7 +114,7 @@ nodejs () {
 
 }
 
-java () {
+java() {
 
   Print_head "Install Maven"
   yum install maven -y &>>${log_file}

@@ -58,13 +58,10 @@ schema_setup () {
     Print_head "Load Schema"
     mysql -h mysql.ravidevops.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql
     status_check $?
-
   fi
-
 }
 
 app_prereq_setup() {
-
    Print_head "Creating Roboshop user"
    id roboshop &>>${log_file}
    if [ $? -ne 0 ]; then
@@ -90,7 +87,6 @@ app_prereq_setup() {
    Print_head "Extrating Content"
    unzip /tmp/${component}.zip &>>${log_file}
    status_check $?
-
 }
 
 nodejs() {
@@ -130,5 +126,4 @@ java() {
   schema_setup
 
   systemd_setup
-
 }

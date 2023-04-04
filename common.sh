@@ -138,8 +138,26 @@ python() {
 
   app_prereq_setup
 
-  Print_head "Download Dependencies & Package"
+  Print_head "Download Dependencies"
   pip3.6 install -r requirements.txt &>>${log_file}
+  status_check $?
+
+  systemd_setup
+}
+
+golang() {
+
+  Print_head "Install GoLang"
+  yum install golang -y &>>${log_file}
+  status_check $?
+
+  app_prereq_setup
+
+  Print_head "Download Dependencies"
+  cd /app &>>${log_file}
+  go mod init dispatch &>>${log_file}
+  go get &>>${log_file}
+  go build &>>${log_file}
   status_check $?
 
   systemd_setup

@@ -32,7 +32,10 @@ systemctl start rabbitmq-server &>>${log_file}
 status_check $?
 
 Print_head "Add App User"
-rabbitmqctl add_user roboshop ${roboshop_app_password} &>>${log_file}
+sudo rabbitmqctl list_users|grep roboshop &>>${log_file}
+if [ $? -ne 0 ]; then
+ rabbitmqctl add_user roboshop ${roboshop_app_password} &>>${log_file}
+fi
 status_check $?
 
 Print_head "Set App Permission"

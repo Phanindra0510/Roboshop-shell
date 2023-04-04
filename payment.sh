@@ -8,5 +8,4 @@ if [ -z "${roboshop_app_password}" ]
 fi
 
 component=payment
-
 python

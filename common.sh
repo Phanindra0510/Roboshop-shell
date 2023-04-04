@@ -139,7 +139,7 @@ python() {
   app_prereq_setup
 
   Print_head "Download Dependencies & Package"
-  pip3.6 install -r requirements.txt
+  pip3.6 install -r requirements.txt &>>${log_file}
   status_check $?
 
   systemd_setup

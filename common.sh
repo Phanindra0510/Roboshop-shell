@@ -50,7 +50,7 @@ schema_setup () {
     status_check $?
 
     Print_head "load schema"
-    mongo --host mongodb.ravidevops.online </app/schema/${component}.js &>>${log_file}
+    mongo --host mongodb-dev.ravidevops.online </app/schema/${component}.js &>>${log_file}
     status_check $?
   elif [ "${schema_type}" == "mysql" ]; then
     Print_head "Install MySQL Client"
@@ -58,7 +58,7 @@ schema_setup () {
     status_check $?
 
     Print_head "Load Schema"
-    mysql -h mysql.ravidevops.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql
+    mysql -h mysql-dev.ravidevops.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql
     status_check $?
   fi
 }
